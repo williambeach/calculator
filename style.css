@@ -90,4 +90,17 @@ body {
 
 #footer {
     margin-top: 10%;
+    font-family: monospace;
+}
+
+.hoverButton {
+    border: solid 4px white;
+}
+
+.buttonClick {
+    box-shadow: inset 0 0 0 1000px rgba(63, 59, 59, 0.4);
+}
+
+button {
+    transition: 0.15s ease;
 }
