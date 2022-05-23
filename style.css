@@ -1,0 +1,33 @@
+body {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#calculator {
+    background-color: darkgray;
+    width: 350px;
+    height: 550px;
+    border: solid 8px black;
+    box-shadow: 6px 6px 5px gray;
+    border-radius: 5px;
+}
+
+#display {
+    
+    height: 12%;
+    width: 94%;
+    margin-top: 2%;
+    border: solid 7px cadetblue;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 100%;
+    background-color: azure;
+    font-size: 250%;
+}
