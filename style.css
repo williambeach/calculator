@@ -9,18 +9,17 @@ body {
 #calculator {
     background-color: darkgray;
     width: 350px;
-    height: 550px;
+    height: 530px;
     border: solid 8px black;
     box-shadow: 6px 6px 5px gray;
     border-radius: 5px;
 }
 
 #display {
-    
     height: 12%;
-    width: 94%;
+    width: 92%;
     margin-top: 2%;
-    border: solid 7px cadetblue;
+    border: solid 7px black;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
@@ -30,4 +29,60 @@ body {
     font-size: 100%;
     background-color: azure;
     font-size: 250%;
+}
+
+#buttonColumns {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+
+}
+
+
+#firstColumn, #secondColumn, #thirdColumn, #fourthColumn {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    row-gap: 10px;
+}
+
+
+
+#squareRoot, #plusMinus, #percentage,
+#divide, #multiply, #minus,
+#plus, #decimal, #backspace, #equals{
+    width: 75px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: moccasin;
+    font-size: large;
+    font-weight: 900;
+
+}
+
+
+#undo {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+#allclear {
+    width: 150px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+#seven, #eight, #nine,
+#four, #five, #six, 
+#one, #two, #three, #zero {
+    border-radius: 25px;
+    width: 75px;
+    height: 50px;
+    background-color:orchid;
+}
+#decimal, #backspace {
+    border-radius: 25px;
+    width: 75px;
+    height: 50px;
+    background-color: crimson;
 }
