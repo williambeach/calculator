@@ -15,7 +15,7 @@ function plusminus(num) {
 }
 
 function percentage(num) {
-    return ((num) / 1000) * 10;
+    return ((num) / 100).toFixed(4);
 }
 
 function squareroot(num) {
@@ -110,6 +110,7 @@ function getOperation() {
                 } else if (operations[i].value == "squareroot") {
                     isNumber = squareroot(firstNum);
                     if (isNaN(isNumber) == true) {
+                        firstNum = String(firstNum);
                     } else {
                         firstNum = String(isNumber);
                         display.textContent = firstNum;
