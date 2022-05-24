@@ -111,13 +111,13 @@ function getOperation() {
                     isNumber = squareroot(firstNum);
                     if (isNaN(isNumber) == true) {
                         firstNum = String(firstNum);
+                        display.textContent = firstNum;
                     } else {
                         firstNum = String(isNumber);
                         display.textContent = firstNum;
                     }
                 }
             }
-            display.textContent = firstNum;
         });
     }
 }
