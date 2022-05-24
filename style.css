@@ -49,7 +49,7 @@ body {
 
 
 
-.operator {
+.operator, .operation {
     width: 75px;
     height: 50px;
     border-radius: 5px;

@@ -4,8 +4,23 @@ const display = document.querySelector('#display');
 const back = document.querySelector('#backspace');
 const clear = document.querySelector('#allclear');
 const decimal = document.querySelector('#decimal');
+const operations = document.querySelectorAll('.operation');
 let firstNum = "";
 let secondNum = "";
+
+
+
+function plusminus(num) {
+    return (num) * -1.0;
+}
+
+function percentage(num) {
+    return ((num) / 1000) * 10;
+}
+
+function squareroot(num) {
+    return ((num) ** (1/2)).toFixed(4);
+}
 
 
 function removeClickEffect(e) {
@@ -44,6 +59,7 @@ function displayNumbers() {
 
 function backSpace() {
     back.addEventListener('click', ()=> {
+        firstNum = String(firstNum);
         display.textContent = display.textContent.slice(0,-1);
         firstNum = firstNum.slice(0,-1);
     });
@@ -61,6 +77,7 @@ function getFirstNumber() {
         numbers[i].addEventListener('click', ()=> {
             if (firstNum.length < 16) {
                 firstNum += numbers[i].value;
+                
             }
             console.log(firstNum);
         });
@@ -76,6 +93,33 @@ function addDecimal() {
     });
 }
 
+function getOperation() {
+    isNumber =0;
+    for (let i=0;i<operations.length;i++) {
+        operations[i].addEventListener('click', ()=> {
+            if (firstNum !== "") {
+                firstNum = Number(firstNum);
+                if (operations[i].value == "plusminus") {
+                    firstNum = plusminus(firstNum);
+                    firstNum = String(firstNum);
+                    display.textContent = firstNum;
+                } else if (operations[i].value == "percentage") {
+                    firstNum = percentage(firstNum);
+                    firstNum = String(firstNum);
+                    display.textContent = firstNum;
+                } else if (operations[i].value == "squareroot") {
+                    isNumber = squareroot(firstNum);
+                    if (isNaN(isNumber) == true) {
+                    } else {
+                        firstNum = String(isNumber);
+                        display.textContent = firstNum;
+                    }
+                }
+            }
+            display.textContent = firstNum;
+        });
+    }
+}
 
 
 
@@ -98,7 +142,7 @@ function addDecimal() {
 
 
 
-
+getOperation();
 addDecimal();
 displayNumbers();
 allClear();
