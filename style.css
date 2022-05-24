@@ -49,9 +49,7 @@ body {
 
 
 
-#squareRoot, #plusMinus, #percentage,
-#divide, #multiply, #minus,
-#plus, #decimal, #backspace, #equals{
+.operator {
     width: 75px;
     height: 50px;
     border-radius: 5px;
@@ -73,21 +71,36 @@ body {
     border-radius: 10px;
 }
 
-#seven, #eight, #nine,
-#four, #five, #six, 
-#one, #two, #three, #zero {
+.num {
     border-radius: 25px;
     width: 75px;
     height: 50px;
     background-color:orchid;
+    font-size: large;
+    font-weight: 900;
 }
 #decimal, #backspace {
     border-radius: 25px;
     width: 75px;
     height: 50px;
     background-color: crimson;
+    font-size: large;
+    font-weight: 900;
 }
 
 #footer {
     margin-top: 10%;
+    font-family: monospace;
+}
+
+.hoverButton {
+    border: solid 3px white;
+}
+
+.clickEffect {
+    box-shadow: inset 0 0 0 1000px rgba(63, 59, 59, 0.4);
+}
+
+button {
+    transition: 0.15s ease;
 }
