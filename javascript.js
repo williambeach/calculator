@@ -15,7 +15,7 @@ function plusminus(num) {
 }
 
 function percentage(num) {
-    return ((num) / 100).toFixed(4);
+    return ((num) / 100).toFixed(2);
 }
 
 function squareroot(num) {
