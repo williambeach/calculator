@@ -49,7 +49,7 @@ body {
 
 
 
-.operator, .operation {
+.operator, .operation, #equals {
     width: 75px;
     height: 50px;
     border-radius: 5px;
