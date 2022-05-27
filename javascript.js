@@ -11,7 +11,7 @@ let firstNum = "";
 let operator = "";
 let secondNum = "";
 const numbersArray = ["0","1","2","3","4","5","6","7","8","9"];
-
+let indexOfDecimal ;
 
 
 function plusminus(num) {
@@ -29,7 +29,6 @@ function squareroot(num) {
 function add(num1,num2) {
     return (num1 + num2).toFixed(4);
 }
-
 
 function subtract(num1, num2) {
     return (num1 - num2).toFixed(4);
@@ -94,12 +93,10 @@ function getNumber() {
             if (firstNum.length < 16 && operator == "") {
                 firstNum += numbers[i].value;
                 display.textContent = firstNum;
-                console.log(`first number is ${firstNum}`);
             } else if (firstNum !== "" && operator!== "" && secondNum
             .length < 16) {
                 secondNum += numbers[i].value;
                 display.textContent = secondNum;
-                console.log(`second number is ${secondNum}`);
             }
         });
     }
@@ -107,10 +104,10 @@ function getNumber() {
         if (numbersArray.includes(KeyboardEvent.key)) {
             if (firstNum.length < 16 && operator == "") {
                 firstNum += KeyboardEvent.key;
-                display.textContent = KeyboardEvent.key;
+                display.textContent = firstNum;
             } else if (firstNum!== "" && operator !== "" && secondNum.length < 16) {
                 secondNum += KeyboardEvent.key;
-                display.textContent = KeyboardEvent.key;
+                display.textContent = secondNum;
             }
         }
     });
@@ -188,7 +185,6 @@ function getOperator() {
         operators[i].addEventListener('click', ()=> {
             if (firstNum !== "" && operator == "") {
                 operator = operators[i].value;
-                console.log(operator);
             }
         });
     }
@@ -207,8 +203,7 @@ function operate() {
                 firstNum = String(firstNum);
                 if (firstNum.length > 16) {
                     firstNum = Number(firstNum);
-                    firstNum = firstNum.toExponential();
-                    firstNum = String(firstNum);
+                    firstNum = firstNum.toPrecision(4);
                 }
                 display.textContent = firstNum;
             }
@@ -221,8 +216,7 @@ function operate() {
                 firstNum = String(firstNum);
                 if (firstNum.length > 16) {
                     firstNum = Number(firstNum);
-                    firstNum = firstNum.toExponential();
-                    firstNum = String(firstNum);
+                    firstNum = firstNum.toPrecision(4);
                 }
                 display.textContent = firstNum;
             }
@@ -235,8 +229,7 @@ function operate() {
                 firstNum = String(firstNum);
                 if (firstNum.length > 16) {
                     firstNum = Number(firstNum);
-                    firstNum = firstNum.toExponential();
-                    firstNum = String(firstNum);
+                    firstNum = firstNum.toPrecision(4);
                 }
                 display.textContent = firstNum;
             }
@@ -249,13 +242,74 @@ function operate() {
                 firstNum = String(firstNum);
                 if (firstNum.length > 16) {
                     firstNum = Number(firstNum);
-                    firstNum = firstNum.toExponential();
-                    firstNum = String(firstNum);
+                    firstNum = firstNum.toPrecision(4);
                 }
                 display.textContent = firstNum;
             }
         });
     }
+}
+
+
+
+function calculate() {
+    equals.addEventListener('click', ()=> {
+        if (firstNum !== "" && secondNum !== "" && operator !== "") {
+            if (operator == "/") {
+                firstNum = Number(firstNum);
+                secondNum = Number(secondNum);
+                firstNum = divide(firstNum, secondNum)
+                secondNum = "";
+                firstNum = String(firstNum);
+                if (firstNum.length > 16) {
+                    firstNum = Number(firstNum);
+                    firstNum = firstNum.toPrecision(4);
+                }
+                display.textContent = firstNum;
+            } 
+            if (operator == "*") {
+                firstNum = Number(firstNum);
+                secondNum = Number(secondNum);
+                firstNum = multiply(firstNum, secondNum)
+                secondNum = "";
+                firstNum = String(firstNum);
+                if (firstNum.length > 16) {
+                    firstNum = Number(firstNum);
+                    firstNum = firstNum.toPrecision(4);
+                }
+                display.textContent = firstNum;
+            }
+            if (operator == "-") {
+                firstNum = Number(firstNum);
+                secondNum = Number(secondNum);
+                firstNum = subtract(firstNum, secondNum)
+                secondNum = "";
+                firstNum = String(firstNum);
+                if (firstNum.length > 16) {
+                    firstNum = Number(firstNum);
+                    firstNum = firstNum.toPrecision(4);
+                }
+                display.textContent = firstNum;
+            }
+            if (operator == "+") {
+                firstNum = Number(firstNum);
+                secondNum = Number(secondNum);
+                firstNum = add(firstNum, secondNum)
+                secondNum = "";
+                firstNum = String(firstNum);
+                if (firstNum.length > 16) {
+                    firstNum = Number(firstNum);
+                    firstNum = firstNum.toPrecision(4);
+                }
+                display.textContent = firstNum;
+            }
+        }
+        for (let i=0;i<operators.length;i++) {
+            operators[i].addEventListener('click', ()=> {
+                operator = operators[i].value;
+            });
+        }
+    });
 }
 
 
@@ -269,11 +323,7 @@ function operate() {
 
 
 
-
-
-
-
-
+calculate();
 getOperator();
 getOperation();
 addDecimal();
