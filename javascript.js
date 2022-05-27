@@ -19,30 +19,30 @@ function plusminus(num) {
 }
 
 function percentage(num) {
-    return ((num) / 100).toFixed(4);
+    return ((num) / 100).toPrecision(4);
 }
 
 function squareroot(num) {
-    return ((num) ** (1/2)).toFixed(4);
+    return ((num) ** (1/2)).toPrecision(4);
 }
 
 function add(num1,num2) {
-    return (num1 + num2).toFixed(4);
+    return (num1 + num2).toPrecision(4);
 }
 
 function subtract(num1, num2) {
-    return (num1 - num2).toFixed(4);
+    return (num1 - num2).toPrecision(4);
 }
 
 function multiply(num1, num2) {
-    return (num1 * num2).toFixed(4);
+    return (num1 * num2).toPrecision(4);
 }
 
 function divide(num1, num2) {
     if (num2 == 0) {
         return 'nah fam'
     } else {
-        return (num1 / num2).toFixed(4);
+        return (num1 / num2).toPrecision(4);
     }
 }
 
